@@ -1,7 +1,7 @@
 import os
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy import misc
+import imageio
 from parameters import parameters
 from getLogLikelihood import getLogLikelihood
 from estGaussMixEM import estGaussMixEM
@@ -207,9 +207,9 @@ print('(g) performing skin detection with GMMs')
 sdata = np.loadtxt(os.path.join(dirname, 'skin.dat'))
 ndata = np.loadtxt(os.path.join(dirname, 'non-skin.dat'))
 
-img = im2double(misc.imread(os.path.join(dirname, 'faces.png')))
+img = im2double(imageio.imread(os.path.join(dirname, 'faces.png')))
 
 skin = skinDetection(ndata, sdata, skin_K, skin_n_iter, skin_epsilon, theta, img)
 plt.imshow(skin)
 plt.show()
-misc.imsave(os.path.join(dirname, 'skin_detection.png', skin))
+imageio.imsave(os.path.join(dirname, 'skin_detection.png', skin))
