@@ -201,7 +201,7 @@ plt.plot(range(num),logLikelihood)
 plt.title('Loglikelihood for different number of k on Data 3')
 plt.show()'''
 
-# skin detection
+# skin detection - fixed imread
 print('\n')
 print('(g) performing skin detection with GMMs')
 sdata = np.loadtxt(os.path.join(dirname, 'skin.dat'))

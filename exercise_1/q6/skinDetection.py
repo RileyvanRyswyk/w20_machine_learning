@@ -22,6 +22,7 @@ def skinDetection(ndata, sdata, K, n_iter, epsilon, theta, img):
     s_weights, s_means, s_covariances = estGaussMixEM(sdata, K, n_iter, epsilon)
     n_weights, n_means, n_covariances = estGaussMixEM(ndata, K, n_iter, epsilon)
 
+    # determine if each pixel is skin or not skin
     result = []
     for i, img_row in enumerate(img):
       row = []
