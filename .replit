@@ -1,0 +1,2 @@
+language = "bash"
+run = "python exercise_1/main.py"

@@ -1,6 +1,6 @@
 import numpy as np
 from estGaussMixEM import estGaussMixEM
-from getLogLikelihood import getLogLikelihood
+from calculateProbability import calculateProbability
 
 
 def skinDetection(ndata, sdata, K, n_iter, epsilon, theta, img):
@@ -18,5 +18,18 @@ def skinDetection(ndata, sdata, K, n_iter, epsilon, theta, img):
     # OUTPUT:
     # result        : Result of the detector for every image pixel
 
-    #####Insert your code here for subtask 1g#####
+    # train models 
+    s_weights, s_means, s_covariances = estGaussMixEM(sdata, K, n_iter, epsilon)
+    n_weights, n_means, n_covariances = estGaussMixEM(ndata, K, n_iter, epsilon)
+
+    # determine if each pixel is skin or not skin
+    result = []
+    for i, img_row in enumerate(img):
+      row = []
+      for j, pixel in enumerate(img_row):
+        p_skin = calculateProbability(s_means, s_weights, s_covariances, pixel)
+        p_nskin = calculateProbability(n_means, n_weights, n_covariances, pixel)
+        row.append((p_skin / p_nskin) > theta)
+      result.append(row)
+
     return result
