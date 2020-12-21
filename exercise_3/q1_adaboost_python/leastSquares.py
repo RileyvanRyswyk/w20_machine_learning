@@ -1,7 +1,7 @@
 import numpy as np
 
 def leastSquares(data, label):
-    # Sum of squared error shoud be minimized
+    # Sum of squared error should be minimized
     #
     # INPUT:
     # data        : Training inputs  (num_samples x dim)

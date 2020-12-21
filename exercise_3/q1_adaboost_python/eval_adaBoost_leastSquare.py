@@ -14,7 +14,23 @@ def eval_adaBoost_leastSquare(X, alphaK, para):
     # classLabels: labels for data points (numSamples x 1)
     # result     : weighted sum of all the K classifier (scalar)
 
-    #####Insert your code here for subtask 1e#####
+    n, dim, K = X.shape[0], X.shape[1], len(alphaK)
+    classLabels = []
+    result = []
 
-    return [classLabels, result]
+    # compute H(X) for each data point
+    for i in range(n):
+        sum = 0
+        for k in range(K):
+            w0 = para[k][0]
+            w1 = para[k][1]
+            w2 = para[k][2]
+            if w0 + w1 * X[i][0] + w2 * X[i][1] > 0:
+                sum += alphaK[k]
+            else:
+                sum -= alphaK[k]
+        result.append(sum)
+        classLabels.append(int(np.sign(sum)))
+
+    return [np.array(classLabels), result]
 

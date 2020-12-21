@@ -1,0 +1,8 @@
+Q1
+
+A) The resulting form of the decision boundary of the boosted classifier is a linear combination of linear classifiers.
+
+D) With additional iterations, the error rate trends downwards. Furthermore, the error value between iterations starts to stabilize
+
+E) Least squares a nearly linear separation boundary unlike the simple classifier.
+   Least squares also appears to be more stable in extrapolating beyond the dataset.

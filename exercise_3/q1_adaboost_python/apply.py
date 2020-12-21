@@ -24,7 +24,7 @@ Y = syn['Y']
 
 
 # b) Simple weak classifier training
-j, theta = simpleClassifier(X, Y)
+j, theta, p_hat = simpleClassifier(X, Y)
 plt.subplot()
 plot_(X, Y, j, theta, 'Simple weak linear classifier')
 plt.show()
@@ -56,7 +56,7 @@ plot_logits(logits_r, 'Weighted sum of weak classifier results')
 
 kMax = 50          # Number of weak classifiers
 nSamples = 20      # Number of random samples to train each classifier
-percent = 0.2      # Percentage of test data
+percent = 0.4      # Percentage of test data
 
 alphaK, para, testX, testY, error = adaboostCross(X, Y, kMax, nSamples, percent)
 
