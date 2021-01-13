@@ -5,3 +5,5 @@ __pycache__/
 *.pyc
 *.npz
 .idea/
+/venv/
+/exercise_4/code/data/
