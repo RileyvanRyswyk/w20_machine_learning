@@ -7,3 +7,5 @@ __pycache__/
 .idea/
 *.png
 *.csv
+venv/
+venv_3.8/
