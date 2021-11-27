@@ -127,7 +127,7 @@ if __name__ == '__main__':
                     my_model = u.load()
             else:
                 raise Exception("No model trained or given by file for testing")
-
+        task = FLAGS.task[0]
         if task < 5:
             test.test_model(my_model, FLAGS.data_test, FLAGS.labels_test)
         elif task == 5:
